@@ -5,5 +5,4 @@ function repeatString(str, time) {
   }
   return stringrepeat;
 }
-console.log(repeatString("Makan! ", 3));
 module.exports = repeatString;
