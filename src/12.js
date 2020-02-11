@@ -1,7 +1,5 @@
+const onSale = [];
 class Item {
-  constructor() {
-    this.item = [];
-  }
   static list() {
     return [
       {
@@ -37,11 +35,20 @@ class Item {
     ];
   }
   static findById(id) {
-    const fill = new Item();
+    const findUser = this.list().find(item => item.id === id);
+    onSale.push(findUser);
+    return this;
   }
   static isOnSale() {
-    const sale = this.it;
-    return sale;
+    const currentYear = new Date().getFullYear();
+    const endYear = onSale[0].sale_end_at.toString();
+    const year = endYear.split(" ")[3];
+    if (year > currentYear) {
+      return true;
+    } else {
+      return false;
+    }
   }
 }
-console.log(Item.findById(1).isOnSale());
+
+module.exports = Item;
